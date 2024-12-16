@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción con jQuery</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Color de los botones</h1>
+
+
+    <div class="box-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <!-- Botones -->
+    <div class="buttons">
+        <button id="toggle-colors">Cambiar colores</button>
+        <button id="toggle-rounded">Cambiar bordes</button>
+        <button id="add-box">Agragar una nueva caja</button>
+        <button id="reset">Reiniciar</button>
+    </div>
+
+    
+<!-- Script de jQuery -->
+<script>
+   $(document).ready(function () {
+    // Toggle Colors
+    $("#toggle-colors").click(function () {
+        $(".box").toggleClass("alt-color");
+    });
+
+    // Toggle Rounded Borders
+    $("#toggle-rounded").click(function () {
+        $(".box").toggleClass("rounded-border");
+    });
+
+    // Add a New Box
+    $("#add-box").click(function () {
+        $(".box-container").append('<div class="box"></div>');
+    });
+
+    // Reset Functionality
+    $("#reset").click(function () {
+        // Eliminar todas las cajas adicionales
+        $(".box-container").html(''); // Borra todo el contenido de la caja
+
+        // Restaurar las tres cajas originales
+        for (let i = 0; i < 3; i++) {
+            $(".box-container").append('<div class="box"></div>');
+        }
+    });
+});
+
+</script>
+</body>
+
+</html>
