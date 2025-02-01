@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Gallery Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#login-form">Login</a></li>
+                <li><a href="#gallery">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="banner">
+            <img src="./img/banner_home.png" alt="Banner principal">
+            <button class="primary-btn">Más información</button>
+        </section>
+
+        <!-- Formulario de Login -->
+        <section id="login-form">
+            <h2>Iniciar sesión</h2>
+            <form id="login" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit" class="primary-btn">Ingresar</button>
+            </form>
+            <button class="secondary-btn" onclick="showRegisterForm()">Registrar nuevo usuario</button>
+        </section>
+
+        <!-- Formulario de Registro -->
+        <section id="register-form" style="display: none;">
+            <h2>Registrar Usuario</h2>
+            <form id="register" onsubmit="handleRegister(event)">
+                <input type="text" id="new-username" placeholder="Usuario" required>
+                <input type="password" id="new-password" placeholder="Contraseña" required>
+                <input type="number" id="age" placeholder="Edad" required>
+                <button type="submit" class="primary-btn">Registrar</button>
+            </form>
+        </section>
+       
+        <!-- Mensaje de bienvenida -->
+        <section id="welcome-message" style="display: none;">
+            <h2>Bienvenido, <span id="user-name"></span>!</h2>
+            <button class="primary-btn" onclick="getPublicAPIData()">Obtener datos de la API (GET)</button>
+            <button class="secondary-btn" onclick="postPublicAPIData()">Enviar datos a la API (POST)</button>
+        </section>
+
+        <!-- Galería -->
+        <section id="gallery">
+            <div class="grid-gallery">
+                <a class="grid-gallery__item" href="#">
+                    <img class="grid-gallery__image" src="./img/imagen_1.jpg">
+                </a>
+                <a class="grid-gallery__item" href="#">
+                    <img class="grid-gallery__image" src="./img/imagen_2.jpg">
+                </a>
+                <a class="grid-gallery__item" href="#">
+                    <img class="grid-gallery__image" src="./img/imagen_3.jpg">
+                </a>
+                <a class="grid-gallery__item" href="#">
+                    <img class="grid-gallery__image" src="./img/imagen_4.jpg">
+                </a>
+                <a class="grid-gallery__item" href="#">
+                    <img class="grid-gallery__image" src="./img/imagen_5.jpg">
+                </a>
+                ...
+            </div>
+            
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
